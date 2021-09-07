@@ -11,6 +11,7 @@ button {
     // box-shadow: 0 0 0.5rem rgb(0 0 0 / 30%);
     cursor: pointer;
     font-weight: bold;
+    margin: 10px;
     &.disabled {
         &:hover {
             cursor: initial;

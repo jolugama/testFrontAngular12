@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UiButtonComponent } from './ui-button/ui-button.component';
 import { DirectivesModule } from '../directives/directives.module';
+
 import { ColorsThemePipe } from '../pipes/colors-theme.pipe';
+
+import { UiButtonComponent } from './ui-button/ui-button.component';
+import { UiCardComponent } from './ui-card/ui-card.component';
 
 
 const COMPONENTS = [
-  UiButtonComponent
+  UiButtonComponent,
+  UiCardComponent
 ];
 
 const PIPES = [
@@ -16,7 +20,8 @@ const PIPES = [
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    ...PIPES
+    ...PIPES,
+    UiCardComponent
   ],
   imports: [
     CommonModule,
