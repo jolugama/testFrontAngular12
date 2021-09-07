@@ -4,6 +4,8 @@
 
 ## json2ts
 
+Crea interfaces partiendo de json.
+
 node src/private/people.js > src/private/people_interface.ts
 
 
