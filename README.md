@@ -1,6 +1,12 @@
+
+
 # TestFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
+## json2ts
+
+node src/private/people.js > src/private/people_interface.ts
+
+
 
 ## Development server
 
