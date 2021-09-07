@@ -1,5 +1,5 @@
 <button ui-ripple [ngStyle]="{'color':colors.color,'background':colors.background}" [disabled]="disabled" 
- [ngClass]="{'disabled':disabled}">
+ [ngClass]="{'disabled':disabled}" appNoDblClick>
     <div #ref>
         <ng-content select="[text]"></ng-content>
     </div>

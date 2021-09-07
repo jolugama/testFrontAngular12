@@ -9,22 +9,39 @@ import { SwapiService } from '@services/swapi.service';
 })
 export class StarshipsComponent implements OnInit {
   startShips:ResultStarships [];
+  buttonPaginationIsDisabled=false;
+  buttonPaginationColor='primary';
+  
   constructor(private swapiService: SwapiService) { 
     this.startShips=[];
   }
 
   ngOnInit(): void {
-    this.getStartShips();
+    this.getStartShips(true);
   }
 
-  getStartShips(): void {
-    this.swapiService.getStartShips()
+  getStartShips(init?:boolean): void {
+    this.swapiService.getStartShips(init)
       .pipe().subscribe(
         (startShips)=>{
-          console.log('startShips',startShips);
+          // console.log('startShips',startShips);
           this.startShips=startShips;
+        
+          if(this.swapiService.isEndPageStartShips()){
+            // debugger;
+            this.buttonPaginationIsDisabled=true;
+            this.buttonPaginationColor='disabled';
+          }
+          
         }
       );
+  }
+
+  clickMorePages(){
+    if(!this.buttonPaginationIsDisabled){
+      this.getStartShips();
+    }
+    
   }
 
 }

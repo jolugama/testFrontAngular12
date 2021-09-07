@@ -1,6 +1,6 @@
 <!-- <ng-container *ngFor="let item of startShips" >xx</ng-container> -->
-<ui-button  [color]="'primary'" [disabled]="false"  >
-    <div text>More</div>
+<ui-button  [color]="buttonPaginationColor" [disabled]="buttonPaginationIsDisabled" (click)="clickMorePages()">
+    <div text>More cards</div>
 </ui-button>
 
 <div class="content-cards">
