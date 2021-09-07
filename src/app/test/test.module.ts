@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TestRoutingModule } from './test-routing.module';
 import { DirectivesModule } from '../directives/directives.module';
+import { ComponentsModule } from '../components/components.module';
+
 
 import { TestComponent } from './test.component';
 
@@ -14,7 +16,8 @@ import { TestComponent } from './test.component';
   imports: [
     CommonModule,
     TestRoutingModule,
-    DirectivesModule
+    DirectivesModule,
+    ComponentsModule
   ],
   exports:[
     
