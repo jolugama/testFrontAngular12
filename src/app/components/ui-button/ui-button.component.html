@@ -1,4 +1,5 @@
-<button ui-ripple [ngStyle]="{'color':colors.color,'background':colors.background}">
+<button ui-ripple [ngStyle]="{'color':colors.color,'background':colors.background}" [disabled]="disabled" 
+ [ngClass]="{'disabled':disabled}">
     <div #ref>
         <ng-content select="[text]"></ng-content>
     </div>

@@ -19,7 +19,12 @@ export class UiButtonComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    this.colors = this.colorTheme.transform(this.color);
+    if(this.disabled){
+      this.colors = this.colorTheme.transform('disabled');
+    }else{
+      this.colors = this.colorTheme.transform(this.color);
+    }
+   
   }
 
 
