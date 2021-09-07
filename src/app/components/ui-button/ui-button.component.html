@@ -1,4 +1,4 @@
-<button ui-ripple>
+<button ui-ripple [ngStyle]="{'color':colors.color,'background':colors.background}">
     <div #ref>
         <ng-content select="[text]"></ng-content>
     </div>
