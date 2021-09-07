@@ -25,25 +25,11 @@ export class TestComponent implements OnInit {
 
   getPeople(): void {
     this.swapiService.getPeople()
-      .pipe().subscribe();
+      .pipe().subscribe(
+        (people)=>{
+          console.log('people',people);
+        }
+      );
   }
-
-  // getPeople(): void {
-  //   this.swapiService.getPeople()
-  //     .pipe(
-  //       tap(console.log),
-  //       switchMap((data: people) => {
-  //         if (data.next?.length > 0) {
-  //           this.swapiService.updateUrlPeople(data.next);
-  //         }
-  //         this.people = [...this.people,...data.results]
-  //         return of(data);
-  //       }),
-  //       tap(console.log),
-  //       tap(()=>{
-  //         console.log('people',this.people)
-  //       }),
-  //     ).subscribe();
-  // }
 
 }

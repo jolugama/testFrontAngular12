@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import {people, ResultPeople} from '@interfaces/index'
-import { switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 
 
@@ -24,25 +24,31 @@ export class SwapiService {
 
 
 
-  getPeople(): Observable<people[]> {
-    return this.http.get<people[]>(this.urlPeople)
+  getPeople2(): Observable<people> {
+    return this.http.get<people>(this.urlPeople)
     .pipe(
-      tap(console.log),
       switchMap((data: people) => {
         if (data.next?.length > 0) {
-          this.updateUrlPeople(data.next);
+          this.urlPeople=data.next;
         }
         this.people = [...this.people,...data.results]
         return of(data);
-      }),
-      tap(console.log),
-      tap(()=>{
-        console.log('people',this.people)
       })
     )
   }
 
-  updateUrlPeople(nextUrl:string){
-    this.urlPeople=nextUrl;
+  getPeople(): Observable<ResultPeople[]> {
+    return this.http.get<people>(this.urlPeople)
+    .pipe(
+      tap(console.log),
+      switchMap((data: people) => {
+        if (data.next?.length > 0) {
+          this.urlPeople=data.next;
+        }
+        this.people = [...this.people,...data.results]
+        return of(this.people);
+      })
+    )
   }
+
 }
