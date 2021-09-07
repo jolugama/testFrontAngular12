@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StarshipsRoutingModule } from './starships-routing.module';
+import { DirectivesModule } from '../directives/directives.module';
+import { ComponentsModule } from '../components/components.module';
+
 import { StarshipsComponent } from './starships.component';
 
 
@@ -11,7 +14,9 @@ import { StarshipsComponent } from './starships.component';
   ],
   imports: [
     CommonModule,
-    StarshipsRoutingModule
+    StarshipsRoutingModule,
+    DirectivesModule,
+    ComponentsModule
   ]
 })
 export class StarshipsModule { }

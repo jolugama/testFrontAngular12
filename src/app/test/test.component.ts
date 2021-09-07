@@ -15,14 +15,14 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPeople();
-    this.getStartShips();
-    this.getPlanets();
-    setTimeout(() => {
-      this.getPeople();
-      this.getStartShips();
-      this.getPlanets();
-    }, 10000);
+    // this.getPeople();
+    // this.getStartShips();
+    // this.getPlanets();
+    // setTimeout(() => {
+    //   this.getPeople();
+    //   this.getStartShips();
+    //   this.getPlanets();
+    // }, 10000);
   }
 
   getPeople(): void {

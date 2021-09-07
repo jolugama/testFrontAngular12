@@ -1,1 +1,37 @@
-<p>starships works!</p>
+<!-- <ng-container *ngFor="let item of startShips" >xx</ng-container> -->
+<ui-button  [color]="'primary'" [disabled]="false"  >
+    <div text>More</div>
+</ui-button>
+
+<div class="content-cards">
+
+    <ui-card *ngFor="let item of startShips">
+        <div title>{{item.name}}</div>
+        <div subtitle>{{item.starship_class}}</div>
+        <div content>
+            <div><b>Manufacturer:</b> {{item.manufacturer}}</div>
+            <div> <b>Passangers:</b> {{item.passengers}}</div>
+        </div>
+        <div actions>
+            <ui-button *ngFor="let pilot of item.pilots" [color]="'warn'" [disabled]="false">
+                <div text>{{pilot}}</div>
+            </ui-button>
+
+            <!-- <ui-button [color]="'warn'" [disabled]="false">
+                <div text>Acción 2</div>
+            </ui-button> -->
+
+            <!-- <ui-button [color]="'warn'" [disabled]="false">
+                <div text>Acción 3</div>
+            </ui-button>
+    
+            <ui-button [color]="'warn'" [disabled]="false">
+                <div text>Acción 4</div>
+            </ui-button>
+    
+            <ui-button [color]="'warn'" [disabled]="false">
+                <div text>Acción 5</div>
+            </ui-button> -->
+        </div>
+    </ui-card>
+</div>
