@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { of } from 'rxjs';
-import { tap, switchMap, map } from 'rxjs/operators';
 import { SwapiService } from '../services/swapi.service';
-import { people, ResultPeople } from '@interfaces/index';
+
 
 @Component({
   selector: 'app-test',
@@ -18,8 +16,12 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPeople();
+    this.getStartShips();
+    this.getPlanets();
     setTimeout(() => {
       this.getPeople();
+      this.getStartShips();
+      this.getPlanets();
     }, 10000);
   }
 
@@ -28,6 +30,24 @@ export class TestComponent implements OnInit {
       .pipe().subscribe(
         (people)=>{
           console.log('people',people);
+        }
+      );
+  }
+
+  getStartShips(): void {
+    this.swapiService.getStartShips()
+      .pipe().subscribe(
+        (startShips)=>{
+          console.log('startShips',startShips);
+        }
+      );
+  }
+
+  getPlanets(): void {
+    this.swapiService.getPlanets()
+      .pipe().subscribe(
+        (planets)=>{
+          console.log('planets',planets);
         }
       );
   }

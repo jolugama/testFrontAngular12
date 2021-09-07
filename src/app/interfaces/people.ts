@@ -1,4 +1,4 @@
-export interface people {
+export interface People {
   count: number;
   next: string;
   previous?: any;

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ServicesModule } from './services/services.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -18,7 +17,6 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServicesModule,
     HttpClientModule
   ],
   providers: [
