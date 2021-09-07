@@ -1,1 +1,8 @@
-<button ui-ripple>mi ui-ripple</button>
+<button ui-ripple>
+    <div #ref>
+        <ng-content select="[text]"></ng-content>
+    </div>
+    <ng-container *ngIf="!ref.hasChildNodes()">
+        Default Content
+    </ng-container>
+</button>
