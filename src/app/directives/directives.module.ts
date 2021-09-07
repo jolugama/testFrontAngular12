@@ -10,6 +10,9 @@ import { UiRippleDirective } from './ui-ripple.directive';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    UiRippleDirective
   ]
 })
 export class DirectivesModule { }
