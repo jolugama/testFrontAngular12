@@ -1,6 +1,16 @@
-<h1>Test front</h1>
-<button routerLink="./test">Acceso al test front</button>
 
 
-<!-- <router-outlet></router-outlet> -->
+<!-- The sidebar -->
+<div class="sidebar">
+    <a  routerLink="/" routerLinkActive="active" >Home</a>
+    <a  routerLink="/test" routerLinkActive="active" >Tests</a>
+    <!-- <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a> -->
+</div>
+
+<!-- Page content -->
+<div class="content">
+  <!-- <router-outlet></router-outlet> -->
 <router-outlet #gamesRouterOutlet="outlet"></router-outlet>
+</div>
