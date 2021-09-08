@@ -2,8 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PlanetsRoutingModule } from './planets-routing.module';
-import { PlanetsComponent } from './planets.component';
+import { DirectivesModule } from '../directives/directives.module';
+import { ComponentsModule } from '../components/components.module';
 
+import { PlanetsComponent } from './planets.component';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { PlanetsComponent } from './planets.component';
   ],
   imports: [
     CommonModule,
-    PlanetsRoutingModule
+    PlanetsRoutingModule,
+    DirectivesModule,
+    ComponentsModule
   ]
 })
 export class PlanetsModule { }

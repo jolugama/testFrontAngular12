@@ -1,1 +1,21 @@
-<p>people works!</p>
+
+<ui-button  [color]="buttonPaginationColor" [disabled]="buttonPaginationIsDisabled" (click)="clickMorePages()">
+    <div text>More cards</div>
+</ui-button>
+
+<div class="content-cards">
+
+    <ui-card *ngFor="let item of people">
+        <div title>{{item.name}}</div>
+        <div subtitle>{{item.mass}}</div>
+        <div content>
+            <div><b>Eye color:</b> {{item.eye_color}}</div>
+            <div> <b>skin color:</b> {{item.skin_color}}</div>
+        </div>
+        <div actions>
+            <ui-button *ngFor="let starship of item.starships" [color]="'basic'" [disabled]="false">
+                <div text>{{starship}}</div>
+            </ui-button>
+        </div>
+    </ui-card>
+</div>

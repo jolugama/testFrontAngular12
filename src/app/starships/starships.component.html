@@ -1,4 +1,4 @@
-<!-- <ng-container *ngFor="let item of startShips" >xx</ng-container> -->
+
 <ui-button  [color]="buttonPaginationColor" [disabled]="buttonPaginationIsDisabled" (click)="clickMorePages()">
     <div text>More cards</div>
 </ui-button>
@@ -16,22 +16,6 @@
             <ui-button *ngFor="let pilot of item.pilots" [color]="'warn'" [disabled]="false">
                 <div text>{{pilot}}</div>
             </ui-button>
-
-            <!-- <ui-button [color]="'warn'" [disabled]="false">
-                <div text>Acción 2</div>
-            </ui-button> -->
-
-            <!-- <ui-button [color]="'warn'" [disabled]="false">
-                <div text>Acción 3</div>
-            </ui-button>
-    
-            <ui-button [color]="'warn'" [disabled]="false">
-                <div text>Acción 4</div>
-            </ui-button>
-    
-            <ui-button [color]="'warn'" [disabled]="false">
-                <div text>Acción 5</div>
-            </ui-button> -->
         </div>
     </ui-card>
 </div>

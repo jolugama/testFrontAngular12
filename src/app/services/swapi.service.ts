@@ -29,14 +29,19 @@ export class SwapiService {
 
   /**
    * LLama al api https://swapi.dev/api/people, guarda next (proxima url) y resultado
+   * @param init para incluirlo en onInit y que no pagine de nuevo si ya tiene una
    * @returns retorna observable resultado
    */
-  getPeople(): Observable<ResultPeople[]> {
+   getPeople(init?: boolean): Observable<ResultPeople[]> {
+    if ((init && this.people.length > 0) || this.urlPeople === '') return of(this.people);
+
     return this.http.get<People>(this.urlPeople)
       .pipe(
         // tap(console.log), //TODO comentar
         switchMap((data: People) => {
-          if (data.next?.length > 0) {
+          if (data.next === null) {
+            this.urlPeople = '';
+          } else {
             this.urlPeople = data.next;
           }
           this.people = [...this.people, ...data.results]
@@ -45,10 +50,18 @@ export class SwapiService {
       )
   }
 
+  /**
+   * 
+   * @returns boolean  si es fin de página
+   */
+  isEndPagePeople() {
+    return this.urlPeople === '' ? true : false;
+  }
+
 
   /**
-   * LLama al api https://swapi.dev/api/people, guarda next (proxima url) y resultado
-   * @param init 
+   * LLama al api https://swapi.dev/api/startShip, guarda next (proxima url) y resultado
+   * @param init para incluirlo en onInit y que no pagine de nuevo si ya tiene una
    * @returns retorna observable resultado
    */
   getStartShips(init?: boolean): Observable<ResultStarships[]> {
@@ -69,6 +82,10 @@ export class SwapiService {
       )
   }
 
+    /**
+   * 
+   * @returns boolean  si es fin de página
+   */
   isEndPageStartShips() {
     return this.urlStarships === '' ? true : false;
   }
@@ -76,21 +93,34 @@ export class SwapiService {
 
 
   /**
-* LLama al api https://swapi.dev/api/people, guarda next (proxima url) y resultado
-* @returns retorna observable resultado
-*/
-  getPlanets(): Observable<ResultPlanets[]> {
+   * LLama al api https://swapi.dev/api/planets, guarda next (proxima url) y resultado
+   * @param init para incluirlo en onInit y que no pagine de nuevo si ya tiene una
+   * @returns retorna observable resultado
+   */
+   getPlanets(init?: boolean): Observable<ResultPlanets[]> {
+    if ((init && this.planets.length > 0) || this.urlPlanets === '') return of(this.planets);
+
     return this.http.get<Planets>(this.urlPlanets)
       .pipe(
         // tap(console.log), //TODO comentar
         switchMap((data: Planets) => {
-          if (data.next?.length > 0) {
+          if (data.next === null) {
+            this.urlPlanets = '';
+          } else {
             this.urlPlanets = data.next;
           }
           this.planets = [...this.planets, ...data.results]
           return of(this.planets);
         })
       )
+  }
+
+  /**
+   * 
+   * @returns boolean  si es fin de página
+   */
+  isEndPagePlanets() {
+    return this.urlPlanets === '' ? true : false;
   }
 
 }

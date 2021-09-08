@@ -1,1 +1,22 @@
-<p>planets works!</p>
+
+<ui-button  [color]="buttonPaginationColor" [disabled]="buttonPaginationIsDisabled" (click)="clickMorePages()">
+    <div text>More cards</div>
+</ui-button>
+
+<div class="content-cards">
+
+    <ui-card *ngFor="let item of planets">
+        <div title>{{item.name}}</div>
+        <div subtitle><b>Gravity:</b> {{item.gravity}}</div>
+        <div content>
+            <div><b>Population:</b> {{item.population}}</div>
+            <div><b>Terrain:</b> {{item.terrain}}</div>
+        </div> 
+        <div actions>
+            <ui-button *ngFor="let resident of item.residents" [color]="'accent'" [disabled]="false">
+                <div text>{{resident}}</div>
+            </ui-button>
+            
+        </div>
+    </ui-card>
+</div>

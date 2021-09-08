@@ -28,7 +28,6 @@ export class StarshipsComponent implements OnInit {
           this.startShips=startShips;
         
           if(this.swapiService.isEndPageStartShips()){
-            // debugger;
             this.buttonPaginationIsDisabled=true;
             this.buttonPaginationColor='disabled';
           }
