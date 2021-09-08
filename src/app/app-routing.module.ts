@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'starships', loadChildren: () => import('./starships/starships.module').then(m => m.StarshipsModule) },
   { path: 'people', loadChildren: () => import('./people/people.module').then(m => m.PeopleModule) },
   { path: 'planets', loadChildren: () => import('./planets/planets.module').then(m => m.PlanetsModule) },
-  { path: '',   redirectTo: '/superheroes', pathMatch: 'full' },
+  { path: '',   redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
